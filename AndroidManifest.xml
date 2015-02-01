@@ -14,7 +14,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:name="BulbasaurApplication"
+        android:icon="@drawable/bulbasaur"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -26,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <service android:name=".ControlIntentService" />
+        <receiver android:name="ControlActionBroadcastReceiver" />
     </application>
 
 </manifest>
