@@ -74,9 +74,8 @@ public class MainActivity extends ActionBarActivity {
 		nl10seconds.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.naturalLighting(10); } });
 
 		Button nl30minutes = (Button) findViewById(R.id.natural_lighting_30_minutes);
-		nl10seconds.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.naturalLighting(60*30); } });
+		nl30minutes.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.naturalLighting(60*30); } });
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
