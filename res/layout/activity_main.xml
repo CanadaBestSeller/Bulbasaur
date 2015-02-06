@@ -9,28 +9,47 @@
     tools:context="com.sourcedave.bulbasaur.MainActivity" >
 
     <Button
-        android:id="@+id/connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Connect" />
-
-    <Button
-        android:id="@+id/on"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="On" />
-
-    <Button
         android:id="@+id/off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Off" />
+
+    <Button
+        android:id="@+id/on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/off"
+        android:layout_alignBottom="@+id/off"
+        android:layout_toLeftOf="@+id/off"
+        android:text="On" />
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/off"
+        android:layout_alignBottom="@+id/off"
+        android:layout_alignParentLeft="true"
+        android:text="Connect" />
+
+    <Button
+        android:id="@+id/natural_lighting_10_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/off"
+        android:text="Natural Lighting: 10 seconds" />
+
+    <Button
+        android:id="@+id/natural_lighting_30_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="Natural Lighting: 30 minutes" />
 
 </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.sourcedave.bulbasaur;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -25,7 +24,6 @@ public class MainActivity extends ActionBarActivity {
 		initButtons();
 	}
 	
-	@SuppressLint("NewApi")
 	public void setupNotification() {
 	    // Setup buttons
 		Intent connectI = new Intent(this, ControlActionBroadcastReceiver.class);
@@ -43,8 +41,6 @@ public class MainActivity extends ActionBarActivity {
 		// Setup notification
 		NotificationManager bulbasaurNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 	    Notification bulbasaurNotification  = new Notification.Builder(this)
-                    // Show controls on lock screen even when user hides sensitive content.
-                    .setVisibility(Notification.VISIBILITY_PUBLIC)
                     // Dismiss notification screen after an action has been selected
                     .setAutoCancel(true)
                     // Make notification permanent 
@@ -73,6 +69,12 @@ public class MainActivity extends ActionBarActivity {
 
 		Button off = (Button) findViewById(R.id.off);
 		off.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.turnOff(); } });
+
+		Button nl10seconds = (Button) findViewById(R.id.natural_lighting_10_seconds);
+		nl10seconds.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.naturalLighting(10); } });
+
+		Button nl30minutes = (Button) findViewById(R.id.natural_lighting_30_minutes);
+		nl10seconds.setOnClickListener(new OnClickListener() { public void onClick(View v) { BulbasaurApplication.naturalLighting(60*30); } });
 	}
 
 

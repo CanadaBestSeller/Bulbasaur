@@ -1,6 +1,7 @@
 package com.sourcedave.bulbasaur;
 
 import lifx.java.android.client.LFXClient;
+import lifx.java.android.entities.LFXHSBKColor;
 import lifx.java.android.entities.LFXTypes.LFXPowerState;
 import lifx.java.android.light.LFXLightCollection;
 import lifx.java.android.network_context.LFXNetworkContext;
@@ -34,25 +35,28 @@ public class BulbasaurApplication extends Application {
 	}
 
 	public static void turnOn() {
-		if (localNetworkContext != null) {
-            if (C.DEBUG) Log.e("LIFX", "Turning lights ON..");
-			LFXLightCollection lightsCollection = localNetworkContext.getAllLightsCollection();
-			lightsCollection.setPowerState(LFXPowerState.ON);
-		} else {
-			// TODO attempt re-connect
-            if (C.DEBUG) Log.e("LIFX", "Tried to turn lights ON, but localNetworkContext is null. Attempting reconnection");
-		}
+		checkLocalNetwork();
+        if (C.DEBUG) Log.e("LIFX", "Turning lights ON..");
+
+		LFXLightCollection lightsCollection = localNetworkContext.getAllLightsCollection();
+		lightsCollection.setPowerState(LFXPowerState.ON);
 	}
 	
 	public static void turnOff() {
-		if (localNetworkContext != null) {
-			if (C.DEBUG) Log.e("LIFX", "Turning lights OFF..");
-			LFXLightCollection lightsCollection = localNetworkContext.getAllLightsCollection();
-			lightsCollection.setPowerState(LFXPowerState.OFF);
-		} else {
-			// TODO attempt re-connect
-            if (C.DEBUG) Log.e("LIFX", "Tried to turn lights OFF, but localNetworkContext is null. Attempting reconnection");
-		}
+		checkLocalNetwork();
+		if (C.DEBUG) Log.e("LIFX", "Turning lights OFF..");
+
+        LFXLightCollection lightsCollection = localNetworkContext.getAllLightsCollection();
+        lightsCollection.setPowerState(LFXPowerState.OFF);
+	}
+
+	public static void naturalLighting(int seconds) {
+		checkLocalNetwork();
+		if (C.DEBUG) Log.e("LIFX", String.format("Natural lighting starting: %d seconds", seconds));
+
+		LFXLightCollection lightsCollection = localNetworkContext.getAllLightsCollection();
+		LFXHSBKColor naturalSunColor = LFXHSBKColor.getColor(30, 1, 1, 5700);
+		lightsCollection.setColorOverDuration(naturalSunColor, seconds*1000);
 	}
 	
 	//
@@ -60,5 +64,12 @@ public class BulbasaurApplication extends Application {
 	//
 	public static void toast(String message) {
 		Toast.makeText(context, message, Toast.LENGTH_SHORT).show();  
+	}
+	
+	public static void checkLocalNetwork() {
+		if (localNetworkContext == null) {
+            if (C.DEBUG) Log.e("LIFX", "Tried to turn lights OFF, but localNetworkContext is null. Attempting reconnection");
+			// TODO attempt re-connect, make sure it is NOT null, because other logic is based on this
+		}
 	}
 }
