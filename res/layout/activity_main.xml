@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:onClick="turnOff"
         android:text="Off" />
 
     <Button
@@ -23,6 +24,7 @@
         android:layout_alignBaseline="@+id/off"
         android:layout_alignBottom="@+id/off"
         android:layout_toLeftOf="@+id/off"
+        android:onClick="turnOn"
         android:text="On" />
 
     <Button
@@ -32,6 +34,7 @@
         android:layout_alignBaseline="@+id/off"
         android:layout_alignBottom="@+id/off"
         android:layout_alignParentLeft="true"
+        android:onClick="connect"
         android:text="Connect" />
 
     <Button
@@ -41,15 +44,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/off"
-        android:text="Natural Lighting: 10 seconds" />
+        android:onClick="naturalLightingWakeupDemo"
+        android:text="Natural Lighting: 10sec Demo" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/natural_lighting_30_minutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/natural_lighting_10_seconds"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/natural_lighting_10_seconds"
+        android:onClick="naturalLightingWakeup"
+        android:text="Natural Lighting Wakeup" />
+
+    <Button
+        android:id="@+id/alarm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/off"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="Natural Lighting: 30 minutes" />
+        android:layout_below="@+id/natural_lighting_30_minutes"
+        android:onClick="setAlarm"
+        android:text="Set Alarm" />
 
 </RelativeLayout>

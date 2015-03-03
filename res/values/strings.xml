@@ -4,5 +4,7 @@
     <string name="app_name">Bulbasaur</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="alarm_toggle">Alarm On/Off</string>
 
 </resources>
