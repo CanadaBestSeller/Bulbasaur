@@ -1,5 +1,7 @@
 package com.sourcedave.bulbasaur;
 
+import lifx.java.android.entities.LFXHSBKColor;
+
 public class C {
 	static final boolean DEBUG = true;
 
@@ -19,4 +21,9 @@ public class C {
 	static final int PI_TURN_ON = 2;
 	static final int PI_TURN_OFF = 3;
 	static final int PI_ALARM = 4;
+	
+	// Natural sunrise wake-up colors
+	static final LFXHSBKColor NATURAL_SUNRISE_COLOR_START = LFXHSBKColor.getColor(30, 1, 0.05f, 5700);
+	static final LFXHSBKColor NATURAL_SUNRISE_COLOR_INTERMEDIATE = LFXHSBKColor.getColor(30, 1, 1, 5700);
+	static final LFXHSBKColor NATURAL_SUNRISE_COLOR_END = LFXHSBKColor.getColor(30, 0.25f, 1, 5700);
 }
